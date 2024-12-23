@@ -18,27 +18,27 @@ getgenv().esp = {
     SkeletonColor = Color3.fromRGB(255, 255, 255),
     SkeletonMaxDistance = 300,
 
-    ChamsEnabled = false,
+    ChamsEnabled = true,
     ChamsInnerColor = Color3.fromRGB(102, 60, 153),
     ChamsOuterColor = Color3.fromRGB(0, 0, 0),
     ChamsInnerTransparency = 0.5,
     ChamsOuterTransparency = 0.2,
 
 
-    TextEnabled = false,
+    TextEnabled = true,
     TextColor = Color3.fromRGB(255, 255, 255),
     TextLayout = {
-        ['nametag']  = { enabled = true, position = 'top', order = 1 },
-        ['name']     = { enabled = true, position = 'top', order = 2 },
-        ['health']   = { enabled = true, position = 'left', order = 1, bar = 'health' },
-        ['armor']    = { enabled = true, position = 'left', order = 2, bar = 'armor' },
-        ['tool']     = { enabled = true, position = 'bottom', suffix = '', prefix = '', order = 1 },
+        ['nametag']  = { enabled = false, position = 'top', order = 1 },
+        ['name']     = { enabled = false, position = 'top', order = 2 },
+        ['health']   = { enabled = false, position = 'left', order = 1, bar = 'health' },
+        ['armor']    = { enabled = false, position = 'left', order = 2, bar = 'armor' },
+        ['tool']     = { enabled = false, position = 'bottom', suffix = '', prefix = '', order = 1 },
         ['distance'] = { enabled = false, position = 'bottom', suffix = 'm', order = 2 },
     },
 
     BarLayout = {
-        ['health'] = { enabled = true, position = 'left', order = 1, color_empty = Color3.fromRGB(176, 84, 84), color_full = Color3.fromRGB(140, 250, 140) },
-        ['armor']  = { enabled = true, position = 'left', order = 2, color_empty = Color3.fromRGB(58, 58, 97), color_full = Color3.fromRGB(72, 72, 250) }
+        ['health'] = { enabled = false, position = 'left', order = 1, color_empty = Color3.fromRGB(176, 84, 84), color_full = Color3.fromRGB(140, 250, 140) },
+        ['armor']  = { enabled = false, position = 'left', order = 2, color_empty = Color3.fromRGB(58, 58, 97), color_full = Color3.fromRGB(72, 72, 250) }
     }
     
 }
@@ -143,7 +143,7 @@ function player:Step(delta)
     local color = self.priority and esp.PriorityColor
     local box_drawings = self.drawings.box
 
-    if esp.BoxEnabled and esp.BoxCorners then
+    if esp.BoxEnabled and esp.Enabled and esp.BoxCorners then
 
         local corner_size = size.X / 3
 
